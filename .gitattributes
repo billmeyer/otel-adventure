@@ -1,3 +1,4 @@
 
 #*.ipynb filter=strip-notebook-output
-*.ipynb filter=clean-all-notebooks
+#*.ipynb filter=clean-all-notebooks
+*.ipynb    filter=jupyter_clear_output
