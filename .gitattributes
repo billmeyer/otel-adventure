@@ -1,1 +1,3 @@
-*.ipynb filter=strip-notebook-output
+
+#*.ipynb filter=strip-notebook-output
+*.ipynb filter=clean-all-notebooks

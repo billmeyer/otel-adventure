@@ -1,0 +1,145 @@
+/* Modify Jupyter Styles */
+/* #top-panel-wrapper,
+#jp-top-bar {
+  background-color: #aecad4 !important;
+}
+
+#menu-panel-wrapper,
+#jp-MainMenu,
+#menu-panel {
+  background-color: #aecad4 !important;
+}
+
+.jp-NotebookPanel-toolbar {
+  background-color: #aecad4 !important;
+}
+.lm-MenuBar-content {
+  color: #02484d;
+} */
+
+/* .jp-RenderedHTMLCommon h1, .jp-RenderedHTMLCommon h2, .jp-RenderedHTMLCommon h3, .jp-RenderedHTMLCommon h4, .jp-RenderedHTMLCommon h5, .jp-RenderedHTMLCommon h6 {
+    line-height: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    margin: inherit;
+    scroll-margin-top: inherit;
+}
+ */
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 200 to 900
+
+.source-sans-3-unique {
+  font-family: "Source Sans 3", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+    font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+/* Headings */
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 1.67em;
+    margin-block-end: 1.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+    color: #545555;
+    background: #f8f9fa;
+}
+
+h1 {
+    font-size: calc(1.325rem + 0.9vw);
+}
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+h2 {
+    font-size: calc(1.29rem + 0.48vw);
+}
+
+h2 {
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: .5rem;
+}
+
+h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+h4 {
+    display: block;
+    margin-block-start: 1.33em;
+    margin-block-end: 1.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+h5 {
+    display: block;
+    font-size: 0.83em;
+    margin-block-start: 1.67em;
+    margin-block-end: 1.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+h6 {
+    display: block;
+    font-size: 0.67em;
+    margin-block-start: 2.33em;
+    margin-block-end: 2.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+h1, .h1, h2, .h2 {
+    color: inherit;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+h3, .h3, h4, .h4 {
+    opacity: .9;
+    margin-top: 1.5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    margin-top: 0;
+    margin-bottom: .5rem;
+    font-weight: 400;
+    /* color: #fafefb; */
+}
+
+* {
+    box-sizing: border-box;
+}
