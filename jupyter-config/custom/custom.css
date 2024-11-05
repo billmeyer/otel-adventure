@@ -88,6 +88,11 @@ h3 {
     unicode-bidi: isolate;
 }
 
+h3 {
+    border-bottom: 5px solid #dee2e6;
+    padding-bottom: .5rem;
+}
+
 h4 {
     display: block;
     margin-block-start: 1.33em;

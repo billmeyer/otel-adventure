@@ -1,5 +1,6 @@
 .DS_Store
 .env
 .ipynb_checkpoints/
+jupyter-config/
 venv/
 otelcol-contrib*
