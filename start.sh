@@ -17,5 +17,5 @@ source venv/bin/activate
 pip3 install -r requirements.txt
 
 jupyter nbconvert --clear-output *.ipynb
-JUPYTER_CONFIG_DIR=./jupyter-config/ jupyter lab --custom-css
+JUPYTER_PORT=8880 JUPYTER_CONFIG_DIR=./jupyter-config/ jupyter lab --custom-css
 
