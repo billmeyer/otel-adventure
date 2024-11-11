@@ -5,7 +5,14 @@ receivers:
         endpoint: "127.0.0.1:4317"
       http:
         endpoint: "127.0.0.1:4318"
-        
+  prometheus:
+    config:
+      scrape_configs:
+      - job_name: opentelemetry-collector
+        scrape_interval: 10s
+        static_configs:
+        - targets:
+          - 127.0.0.1:8888
 processors:
   batch:
     timeout: 2s
@@ -21,6 +28,7 @@ exporters:
     api:
       site: ${DD_SITE_PARAMETER}
       key: ${DD_API_KEY}
+    hostname: testlab
       
 connectors:
   datadog/connector:
@@ -39,7 +47,7 @@ service:
 
   pipelines:
     metrics:
-      receivers: [otlp, datadog/connector]
+      receivers: [otlp, prometheus, datadog/connector]
       processors: [batch]
       exporters: [debug/basic, datadog]
 
