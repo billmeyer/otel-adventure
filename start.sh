@@ -7,8 +7,8 @@ if [ "${#DD_API_KEY}" -ne 32 ]; then
 	exit -1
 fi
 
-if [[ -z "${DD_SITE_PARAMETER}" ]]; then
-	echo "Environment variable DD_SITE_PARAMETER not set."
+if [[ -z "${DD_SITE}" ]]; then
+	echo "Environment variable DD_SITE not set."
 	exit -1
 fi
 

@@ -26,7 +26,7 @@ exporters:
 
   datadog:
     api:
-      site: ${DD_SITE_PARAMETER}
+      site: ${DD_SITE}
       key: ${DD_API_KEY}
     hostname: testlab
       
