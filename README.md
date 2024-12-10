@@ -11,3 +11,52 @@ The toolset provided in this workshop can be reused any number of times to facil
 
 Your adventure awaits...
 
+## Requirements
+
+* [Python 3](https://docs.python-guide.org/starting/install3/osx/#doing-it-right)
+  * Python 3 is required for this workshop. This can be downloaded either from [python.org](https://www.python.org/downloads/) or, on macOS, installed via [brew](https://brew.sh/): `brew install python3`
+  * verify: `python3 -V`
+
+## Startup
+
+### Clone the workshop from GitHub
+
+From your $HOME directory:
+
+```bash
+git clone https://github.com/billmeyer/otel-adventure
+cd otel-adventure
+```
+
+### Set Environment Variables
+
+The following environment variables will be used through this workshop. Retrieve these from your Datadog Organization:
+
+* `DD_API_KEY` - Select an API Key from your Org
+* `DD_SITE` - Select the appropriate Datadog Site for your Org
+
+Create a file named `.env` in the local directory and **replace the values in the angle brackets with the values from above**:
+
+```bash
+export DD_API_KEY=<my api key>
+export DD_SITE=<my datadog site>
+```
+
+Example `.env` file:
+
+```bash
+export DD_API_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+export DD_SITE=datadoghq.com
+```
+
+### Confirm Values in .env
+
+`cat .env`
+
+### Start Jupyter Lab
+
+In a terminal window, run: `./start.sh`
+
+This will open a browser window at `http://localhost:8880/lab` with the project files.
+
+From here you can follow the `section##-<title>.ipynb` files for instructions. For the sake of DRY these instructions are not repeated here. `section01-requirements.ipynb` and `section02-startup.ipynb` are covered above for the sake of accessibility and getting started with jupyter.
