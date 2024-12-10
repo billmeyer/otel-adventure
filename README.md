@@ -17,7 +17,7 @@ Your adventure awaits...
   * Python 3 is required for this workshop. This can be downloaded either from [python.org](https://www.python.org/downloads/) or, on macOS, installed via [brew](https://brew.sh/): `brew install python3`
   * verify: `python3 -V`
 * [git](https://git-scm.com/downloads/mac)
-    * Git is required for this workshop. For MacOS it can be installed by installing [XCode](https://developer.apple.com/xcode/) or via [brew](https://brew.sh/): `brew install git`; (for other OS distributions refer to [git-scm.com][https://git-scm.com/downloads])
+    * Git is required for this workshop. For MacOS it can be installed by installing [XCode](https://developer.apple.com/xcode/) or via [brew](https://brew.sh/): `brew install git`; (for other OS distributions refer to [git-scm.com](https://git-scm.com/downloads)
 
 ## Startup
 
