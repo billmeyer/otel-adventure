@@ -64,3 +64,5 @@ In a terminal window, run: `./start.sh`
 This will open a browser window at `http://localhost:8880/lab` with the project files.
 
 From here you can follow the `section##-<title>.ipynb` files for instructions. For the sake of not repeating ourselves these instructions are not copied here. `section01-requirements.ipynb` and `section02-startup.ipynb` are covered above for the sake of accessibility and getting started with jupyter.
+
+![jupyter-notebook](./jupyterlab.png)
