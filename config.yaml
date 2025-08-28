@@ -1,10 +1,27 @@
+# EXTENSIONS #################################################
+extensions:
+  datadog:
+    api:
+      site: ${DD_SITE_PARAMETER}
+      key: ${DD_API_KEY}
+    http:
+      endpoint: "localhost:9875"
+      path: "/metadata"
+
+# CONNECTORS #################################################
+connectors:
+  datadog/connector:
+    traces:
+      span_name_as_resource_name: true
+
+# RECEIVERS ##################################################
 receivers:
   otlp:
     protocols:
       grpc:
-        endpoint: "127.0.0.1:4317"
+        endpoint: "0.0.0.0:4317"
       http:
-        endpoint: "127.0.0.1:4318"
+        endpoint: "0.0.0.0:4318"
   prometheus:
     config:
       scrape_configs:
@@ -13,10 +30,35 @@ receivers:
         static_configs:
         - targets:
           - 127.0.0.1:8888
+
+# PROCESSORS #################################################
 processors:
+  memory_limiter:
+    check_interval: 1s
+    limit_mib: 256
+    spike_limit_mib: 64
+
   batch:
     timeout: 2s
-    
+
+  resource:
+    attributes:
+      - key: deployment.environment
+        value: "otel-adventure"
+        action: upsert
+
+  resourcedetection:
+    detectors:
+      - env
+      - system
+      #- docker
+    system:
+      hostname_sources:
+        - os
+
+  # https://docs.datadoghq.com/opentelemetry/guide/otlp_delta_temporality/#converting-to-delta-temporality-on-the-collector
+  cumulativetodelta:
+
 exporters:
   debug/basic:
     verbosity: basic
@@ -29,13 +71,16 @@ exporters:
       site: ${DD_SITE}
       key: ${DD_API_KEY}
     hostname: testlab
-      
-connectors:
-  datadog/connector:
 
+# SERVICE ####################################################
 service:
+  extensions:
+    - datadog
+
   telemetry:
+    # Enable health monitoring of the Collector instance
     metrics:
+#      level: detailed
       readers:
         - pull:
             exporter:
@@ -47,16 +92,46 @@ service:
 
   pipelines:
     metrics:
-      receivers: [otlp, datadog/connector]
-      processors: [batch]
-      exporters: [debug/basic, datadog]
+      receivers:
+        - otlp
+        - prometheus
+        - datadog/connector
+
+      processors:
+        - memory_limiter
+        - resource
+        - resourcedetection
+        - batch
+
+      exporters:
+        - debug/basic
+        - datadog
 
     traces:
-      receivers: [otlp]
-      processors: [batch]
-      exporters: [debug/basic, datadog/connector, datadog]
+      receivers:
+        - otlp
+
+      processors:
+        - memory_limiter
+        - resource
+        - resourcedetection
+        - batch
+
+      exporters:
+        - debug/detailed
+        - datadog/connector
+        - datadog
 
     logs:
-      receivers: [otlp]
-      processors: [batch]
-      exporters: [debug/basic, datadog]
+      receivers:
+        - otlp
+
+      processors:
+        - memory_limiter
+        - resource
+        - resourcedetection
+        - batch
+
+      exporters:
+        - debug/basic
+        - datadog
